@@ -1,0 +1,30 @@
+
+<ion-view view-title="SafeTravels">
+    
+    <ion-nav-buttons side="right">
+      <button class="button" style="font-size:2em;"ng-click="showSearch()">
+        <i class="ion-search"></i>
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+      <button class="button" style="font-size:2em;"ng-click="doSomething()">
+        <i class="ion-ios-settings-strong"></i>
+      </button>
+    </ion-nav-buttons>
+  <ion-content class="padding" >
+    <h2 ng-hide="showSearchBar">Welcome to SafeTravels</h2>
+      <label  ng-show="showSearchBar" class="item item-input search">
+            <input type="text" ng-model="mySearch">
+      </label>
+    <p>
+    Here are the safest places for you to visit!
+    </p>
+    <ul class="list" >
+        <li class="item" ng-repeat="listItem in listItems | filter:mySearch as filterdItems" >
+          {{listItem}}
+        </li>
+    </ul>
+      <div ng-if="filterdItems.length === 0">This may not be the best travel destination. Try searching for another place.</div>
+
+  </ion-content>
+</ion-view>

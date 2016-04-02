@@ -1,6 +1,15 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('SafespaceCtrl', function($scope) {
+    $scope.showSearchBar = false;
+    $scope.showSearch = function(){
+        $scope.showSearchBar = !$scope.showSearchBar;
+        console.log($scope.showSearchBar);
+    };
+    $scope.listItems = ["My name is Mark",2, "I am remarkable",4, "I like to use bookmarks",6,"Markers are fun",8];
+    
+})
+.controller('RandomCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
