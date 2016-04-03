@@ -2,11 +2,16 @@ angular.module('starter.controllers', [])
 
 .controller('SafespaceCtrl', function($scope) {
     $scope.showSearchBar = false;
+    //var search = document.getElementById("main-search");
+
     $scope.showSearch = function(){
         $scope.showSearchBar = !$scope.showSearchBar;
-        console.log($scope.showSearchBar);
+//        if($scope.showSearchBar){
+//            search.focus();
+//        }
+        
     };
-    $scope.listItems = ["My name is Mark",2, "I am remarkable",4, "I like to use bookmarks",6,"Markers are fun",8];
+    $scope.listItems = [{"My name is Mark",2, "I am remarkable",4, "I like to use bookmarks",6,"Markers are fun",8];
     
 })
 .controller('RandomCtrl', function($scope) {})

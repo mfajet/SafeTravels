@@ -2,4 +2,47 @@
 .search{
     border-radius:8px;
     height: 1.2em;
+    position:relative;
+}
+.header-item, .header {
+    background-color: antiquewhite;
+    font: 400 100px/1.3 'Oleo Script', Helvetica, sans-serif;
+    font-size: 3em !important;
+    
+    color:black;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+}
+
+ion-content{
+    background-color: cornflowerblue;
+    text-align: center;
+}
+.nav, ion-header-bar, .tabs{
+    background-color: antiquewhite !important;
+
+}
+
+.city-item{
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
+    display: inline-block;
+    background-color: cornflowerblue;
+    border-style: none;
+    text-align: center;
+}
+.city-item .frame{
+    
+    margin-left: auto;
+    margin-right: auto;
+    width:90%;
+    background-color: antiquewhite;
+    padding-top: 5%;
+}
+.back{
+    color: black;
+}
+.city-item img{
+    width:90%;
+    height: 90%;
 }

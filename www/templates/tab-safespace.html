@@ -1,29 +1,33 @@
 
-<ion-view view-title="SafeTravels">
+<ion-view view-title="Safespace">
     
-    <ion-nav-buttons side="right">
-      <button class="button" style="font-size:2em;"ng-click="showSearch()">
+    <ion-nav-buttons class="nav" side="right">
+      <button class="button nav" style="font-size:2em;"ng-click="showSearch()">
         <i class="ion-search"></i>
       </button>
     </ion-nav-buttons>
-    <ion-nav-buttons side="left">
-      <button class="button" style="font-size:2em;"ng-click="doSomething()">
+    <ion-nav-buttons class="nav" side="left">
+      <button class="button nav" style="font-size:2em;"ng-click="doSomething()">
         <i class="ion-ios-settings-strong"></i>
       </button>
     </ion-nav-buttons>
   <ion-content class="padding" >
     <h2 ng-hide="showSearchBar">Welcome to SafeTravels</h2>
-      <label  ng-show="showSearchBar" class="item item-input search">
-            <input type="text" ng-model="mySearch">
+      <label id="main-search" ng-show="showSearchBar" class="item item-input search">
+            <input  type="text" ng-model="mySearch">
       </label>
     <p>
     Here are the safest places for you to visit!
     </p>
-    <ul class="list" >
-        <li class="item" ng-repeat="listItem in listItems | filter:mySearch as filterdItems" >
-          {{listItem}}
-        </li>
-    </ul>
+      <a href="#/tab/safespace/4">
+        <div class="item city-item" ng-repeat="listItem in listItems | filter:mySearch as filterdItems" >
+            <div class="frame">
+                <div><img src="https://pixabay.com/static/uploads/photo/2015/10/01/21/39/background-image-967820_960_720.jpg">
+                </div>
+                <p>{{listItem}}</p>
+            </div>
+        </div>
+          </a>
       <div ng-if="filterdItems.length === 0">This may not be the best travel destination. Try searching for another place.</div>
 
   </ion-content>
