@@ -7,8 +7,10 @@
       </button>
     </ion-nav-buttons>
     <ion-nav-buttons class="nav" side="left">
-      <button class="button nav" style="font-size:2em;"ng-click="doSomething()">
+        
+      <button class="button nav" ng-click="showSliders()" style="font-size:2em;" >
         <i class="ion-ios-settings-strong"></i>
+          
       </button>
     </ion-nav-buttons>
   <ion-content class="padding" >
@@ -19,15 +21,17 @@
     <p>
     Here are the safest places for you to visit!
     </p>
-      <a href="#/tab/safespace/4">
+      
         <div class="item city-item" ng-repeat="listItem in listItems | filter:mySearch as filterdItems" >
+            <a href="#/tab/safespace/{{listItem.id}}">
             <div class="frame">
                 <div><img src="https://pixabay.com/static/uploads/photo/2015/10/01/21/39/background-image-967820_960_720.jpg">
                 </div>
-                <p>{{listItem}}</p>
+                <p>{{listItem.name || listItem}}</p>
             </div>
+                </a>
         </div>
-          </a>
+          
       <div ng-if="filterdItems.length === 0">This may not be the best travel destination. Try searching for another place.</div>
 
   </ion-content>

@@ -1,47 +1,47 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
+.factory('Cities', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
+  var cities = [{
     id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
+    name: 'Miami',
+    info: 'You on your way?',
+    image: 'img/ben.png'
   }, {
     id: 1,
     name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
+    info: 'Hey, it\'s me',
+    image: 'img/max.png'
   }, {
     id: 2,
     name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
+    info: 'I should buy a boat',
+    image: 'img/adam.jpg'
   }, {
     id: 3,
     name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
+    image: 'Look at my mukluks!',
+    info: 'img/perry.png'
   }, {
     id: 4,
     name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+    info: 'This is wicked good ice cream.',
+    image: 'img/mike.png'
   }];
 
   return {
     all: function() {
-      return chats;
+      return cities;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    remove: function(city) {
+      cities.splice(cities.indexOf(city), 1);
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    get: function(cityId) {
+      for (var i = 0; i < cities.length; i++) {
+        if (cities[i].id === parseInt(cityId)) {
+          return cities[i];
         }
       }
       return null;

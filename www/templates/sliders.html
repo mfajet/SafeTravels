@@ -1,0 +1,20 @@
+<ion-modal-view class="modal" cache-view="false">
+    <ion-header-bar>
+        <button class="button button-clear cancel" ng-click="close()" >Cancel</button>
+      <h1 class="title">What do you think?</h1>
+        <button class="button button-clear" ng-click="log()" >Save</button>
+    </ion-header-bar>
+    <ion-content>
+        
+      <h2>What's important to you?</h2>
+      <div class="list">
+          Crime Rates
+  <div class="item range range-positive">
+    0
+    <input type="range" min="0" max="100" ng-model="data.crimeRates">
+      <div id="crimeID" >{{data.crimeRates}}</div>
+    100
+  </div>
+</div>
+  </ion-content>
+</ion-modal-view>

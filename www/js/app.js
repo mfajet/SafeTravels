@@ -93,7 +93,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-safespace': {
           templateUrl: 'templates/safespace-detail.html',
-          controller: 'ChatDetailCtrl'
+          controller: 'SafespaceDetailCtrl'
         }
       }
     })
