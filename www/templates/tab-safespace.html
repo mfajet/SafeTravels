@@ -15,11 +15,13 @@
     </ion-nav-buttons>
   <ion-content class="padding" >
     <h2 ng-hide="showSearchBar">Here are the safest places for you to visit!</h2>
-      <label id="main-search" ng-show="showSearchBar" class="item item-input search">
-            <input  type="text" ng-model="mySearch" placeholder="Search for a safe space!">
-      </label>
-      
-        <div class="item city-item" ng-repeat="listItem in listItems | filter:mySearch as filterdItems" >
+      <div ng-show="showSearchBar" class="search-div" >
+      <label id="main-search" class="item item-input search">
+            <input  type="text" ng-model="data.mySearch" placeholder="Search for a safe space!">
+            
+      </label><button class= " search-button" ng-click="update()">Search</button>
+      </div>
+        <div class="item city-item"  ng-repeat="listItem in listItems | limitTo:count" >
             <a href="#/tab/safespace-detail/{{listItem.id}}">
             <div class="frame">
                 <div><img src="https://pixabay.com/static/uploads/photo/2015/10/01/21/39/background-image-967820_960_720.jpg">
@@ -28,8 +30,9 @@
             </div>
                 </a>
         </div>
+      <button ng-hide="listItems.length == 0 || count > listItems.length" ng-click="count = count + 20" ng-init="count=20">Load more</button>
           
-      <div ng-if="filterdItems.length === 0">This may not be the best travel destination. Try searching for another place.</div>
+      <div ng-if="listItems.length === 0">This may not be the best travel destination. Try searching for another place.</div>
 
   </ion-content>
 </ion-view>

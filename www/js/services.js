@@ -5,7 +5,7 @@ angular.module('starter.services', [])
     var citiesJSON = {};
         
      var req = new XMLHttpRequest();
-        req.open("GET", "http://ec2-54-152-185-202.compute-1.amazonaws.com:3000/api/city?city=", false);
+        req.open("GET", "http://Ec2-54-165-0-245.compute-1.amazonaws.com:3000/api/city?city=", false);
         req.setRequestHeader("Content-type", "application/json");
         req.send(null);
     
@@ -33,6 +33,16 @@ angular.module('starter.services', [])
       return null;
     }, size: function(){
         return citiesJSON.length;
+    }, update: function(toFind){
+        var req = new XMLHttpRequest();
+        req.open("GET", "http://Ec2-54-165-0-245.compute-1.amazonaws.com:3000/api/city?city=" + toFind, false);
+        req.setRequestHeader("Content-type", "application/json");
+        req.send(null);
+    
+    citiesJSON = JSON.parse(req.responseText).results;
+        console.log(citiesJSON);
+        return citiesJSON;
     }
+      
   };
 });

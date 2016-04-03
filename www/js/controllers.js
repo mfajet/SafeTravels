@@ -3,7 +3,8 @@ angular.module('starter.controllers', [])
 .controller('SafespaceCtrl', function($scope, Cities, $state, $ionicModal) {
     $scope.data = {
         crimeRates: 50,
-        airQuality: 50
+        airQuality: 50,
+        mySearch: ""
     };
     $scope.showSearchBar = false;
     //var search = document.getElementById("main-search");
@@ -38,12 +39,16 @@ $scope.listItems = Cities.all();
         console.log($scope.data.airQuality);
         
         var req = new XMLHttpRequest();
-        req.open("POST", "http://ec2-54-152-185-202.compute-1.amazonaws.com:3000/api/factors", true);
+        req.open("POST", "http://Ec2-54-165-0-245.compute-1.amazonaws.com:3000/api/factors", true);
         req.setRequestHeader("Content-type", "application/json");
         req.send({crimeRates: $scope.data.crimeRates, airQuality: $scope.data.airQuality});
         
         $scope.modal.hide();
 
+    }
+    console.log($scope.data.mySearch);
+    $scope.update = function(){
+        $scope.listItems = Cities.update($scope.data.mySearch);
     }
     
 })
