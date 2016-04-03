@@ -38,13 +38,19 @@ angular.module('starter.services', [])
     remove: function(city) {
       cities.splice(cities.indexOf(city), 1);
     },
-    get: function(cityId) {
+    get: function(cityId, rand) {
+        if(!rand){
       for (var i = 0; i < cities.length; i++) {
         if (cities[i].id === parseInt(cityId)) {
           return cities[i];
         }
       }
+        } else{
+            return cities[Math.floor(Math.random()*5)];
+        }
       return null;
+    }, size: function(){
+        return cities.length;
     }
   };
 });

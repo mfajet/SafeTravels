@@ -37,7 +37,17 @@ $scope.listItems = Cities.all();
     }
     
 })
-.controller('RandomCtrl', function($scope) {})
+.controller('RandomCtrl', function($scope,Cities, $state) {
+    $scope.randomize=function(){
+        $state.go("tab.random");
+       $scope.safespace = Cities.get(Math.floor(Math.random()*Cities.size()));  
+
+    };
+})
+.controller('TabsCtrl', function($scope, Cities, $state) {$scope.randomize=function(){
+         // console.log("Dsfsdf");
+       $scope.safespace = Cities.get(Math.floor(Math.random()*5));  
+    };})
 .controller('SlidersCtrl', function($scope) {
     console.log('sliders');
 })
@@ -59,6 +69,10 @@ $scope.listItems = Cities.all();
 
 .controller('SafespaceDetailCtrl', function($scope, $stateParams, Cities) {
   $scope.safespace = Cities.get($stateParams.spaceId);
+    if(!$scope.safespace){
+        $scope.safespace = Cities.get(Math.floor(Math.random()*5));
+    }
+    
 })
 
 .controller('AccountCtrl', function($scope) {

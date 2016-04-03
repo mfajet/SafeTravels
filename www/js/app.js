@@ -36,7 +36,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/tabs.html',
+    controller: 'TabsCtrl'
+
   })
 
   // Each tab has its own nav history stack:
@@ -83,13 +85,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/random',
     views: {
       'tab-random': {
-        templateUrl: 'templates/tab-random.html',
+        templateUrl: 'templates/safespace-detail.html',
         controller: 'RandomCtrl'
       }
     }
   })
   .state('tab.safespace-detail', {
-      url: '/safespace/:spaceId',
+      url: '/safespace-detail/:spaceId',
       views: {
         'tab-safespace': {
           templateUrl: 'templates/safespace-detail.html',

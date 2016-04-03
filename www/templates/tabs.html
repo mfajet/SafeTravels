@@ -15,7 +15,7 @@ navigation history that also transitions its views in and out.
     <ion-nav-view name="tab-map"></ion-nav-view>
   </ion-tab>
     
-    <ion-tab title="Random" icon-off="ion-shuffle" icon-on="ion-shuffle" href="/tab/random">
+    <ion-tab title="Random" icon-off="ion-shuffle" icon-on="ion-shuffle" ng-controller="RandomCtrl" ng-click="randomize()" href="#/tab/random">
     <ion-nav-view name="tab-random"></ion-nav-view>
   </ion-tab>
 
