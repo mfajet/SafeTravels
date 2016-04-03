@@ -22,8 +22,8 @@ angular.module('starter.services', [])
   }, {
     id: 3,
     name: 'Perry Governor',
-    image: 'Look at my mukluks!',
-    info: 'img/perry.png'
+    info: 'Look at my mukluks!',
+    image: 'img/perry.png'
   }, {
     id: 4,
     name: 'Mike Harrington',

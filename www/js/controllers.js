@@ -2,7 +2,8 @@ angular.module('starter.controllers', [])
 
 .controller('SafespaceCtrl', function($scope, Cities, $state, $ionicModal) {
     $scope.data = {
-        crimeRates: 33
+        crimeRates: 50,
+        airQuality: 50
     };
     $scope.showSearchBar = false;
     //var search = document.getElementById("main-search");
@@ -34,6 +35,15 @@ $scope.listItems = Cities.all();
     
     $scope.log = function() {
         console.log($scope.data.crimeRates);
+        console.log($scope.data.airQuality);
+        
+        var req = new XMLHttpRequest();
+        req.open("POST", "ec2-54-152-185-202.compute-1.amazonaws.com:3000/api/factors", true);
+        req.setRequestHeader("Content-type", "application/json");
+        req.send({crimeRates: $scope.data.crimeRates, airQuality: $scope.data.airQuality});
+        
+        $scope.modal.hide();
+
     }
     
 })

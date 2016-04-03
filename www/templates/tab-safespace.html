@@ -1,5 +1,5 @@
 
-<ion-view view-title="Safespace">
+<ion-view view-title="SafeTravels">
     
     <ion-nav-buttons class="nav" side="right">
       <button class="button nav" style="font-size:2em;"ng-click="showSearch()">
@@ -14,13 +14,10 @@
       </button>
     </ion-nav-buttons>
   <ion-content class="padding" >
-    <h2 ng-hide="showSearchBar">Welcome to SafeTravels</h2>
+    <h2 ng-hide="showSearchBar">Here are the safest places for you to visit!</h2>
       <label id="main-search" ng-show="showSearchBar" class="item item-input search">
-            <input  type="text" ng-model="mySearch">
+            <input  type="text" ng-model="mySearch" placeholder="Search for a safe space!">
       </label>
-    <p>
-    Here are the safest places for you to visit!
-    </p>
       
         <div class="item city-item" ng-repeat="listItem in listItems | filter:mySearch as filterdItems" >
             <a href="#/tab/safespace-detail/{{listItem.id}}">

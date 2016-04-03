@@ -1,6 +1,5 @@
 <ion-modal-view class="modal" cache-view="false">
     <ion-header-bar>
-        <button class="button button-clear cancel" ng-click="close()" >Cancel</button>
       <h1 class="title">What do you think?</h1>
         <button class="button button-clear" ng-click="log()" >Save</button>
     </ion-header-bar>
@@ -8,12 +7,19 @@
         
       <h2>What's important to you?</h2>
       <div class="list">
-          Crime Rates
+          <div class="factor-label">Crime Rates</div>
   <div class="item range range-positive">
     0
     <input type="range" min="0" max="100" ng-model="data.crimeRates">
+    100 
+     
+</div>
+           <div class="factor-label">Air quality</div>
+  <div class="item range range-positive">
+    0
+    <input type="range" min="0" max="100" ng-model="data.airQuality">
     100
   </div>
-</div>
+        </div>
   </ion-content>
 </ion-modal-view>
