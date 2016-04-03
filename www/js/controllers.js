@@ -38,7 +38,7 @@ $scope.listItems = Cities.all();
         console.log($scope.data.airQuality);
         
         var req = new XMLHttpRequest();
-        req.open("POST", "ec2-54-152-185-202.compute-1.amazonaws.com:3000/api/factors", true);
+        req.open("POST", "http://ec2-54-152-185-202.compute-1.amazonaws.com:3000/api/factors", true);
         req.setRequestHeader("Content-type", "application/json");
         req.send({crimeRates: $scope.data.crimeRates, airQuality: $scope.data.airQuality});
         

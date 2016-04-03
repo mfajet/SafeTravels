@@ -1,56 +1,38 @@
 angular.module('starter.services', [])
 
-.factory('Cities', function() {
+.factory('Cities', function($http) {
   // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var cities = [{
-    id: 0,
-    name: 'Miami',
-    info: 'You on your way?',
-    image: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    info: 'Hey, it\'s me',
-    image: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    info: 'I should buy a boat',
-    image: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    info: 'Look at my mukluks!',
-    image: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    info: 'This is wicked good ice cream.',
-    image: 'img/mike.png'
-  }];
+    var citiesJSON = {};
+        
+     var req = new XMLHttpRequest();
+        req.open("GET", "http://ec2-54-152-185-202.compute-1.amazonaws.com:3000/api/city?city=", false);
+        req.setRequestHeader("Content-type", "application/json");
+        req.send(null);
+    
+    citiesJSON = JSON.parse(req.responseText).results;
+    console.log( citiesJSON);
+   
 
   return {
     all: function() {
-      return cities;
+      return citiesJSON;
     },
     remove: function(city) {
-      cities.splice(cities.indexOf(city), 1);
+      citiesJSON.splice(citiesJSON.indexOf(city), 1);
     },
     get: function(cityId, rand) {
         if(!rand){
-      for (var i = 0; i < cities.length; i++) {
-        if (cities[i].id === parseInt(cityId)) {
-          return cities[i];
+      for (var i = 0; i < citiesJSON.length; i++) {
+        if (citiesJSON[i].id === parseInt(cityId)) {
+          return citiesJSON[i];
         }
       }
         } else{
-            return cities[Math.floor(Math.random()*5)];
+            return citiesJSON[Math.floor(Math.random()*5)];
         }
       return null;
     }, size: function(){
-        return cities.length;
+        return citiesJSON.length;
     }
   };
 });
